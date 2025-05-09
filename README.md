@@ -5,6 +5,9 @@
 
 This is a **Student Record System** designed to manage student data, course enrollment, and instructor assignments in a relational database. The system allows for easy tracking of students, courses, and enrollments using SQL, with proper database normalization and relationships.
 
+## The ERD Diagram
+![My Image](ERD_image.png)
+
 ## **Features**
 - **Student Management**: Store and manage student details (name, email, phone, etc.).
 - **Course Management**: Store and manage courses offered by the institution.
