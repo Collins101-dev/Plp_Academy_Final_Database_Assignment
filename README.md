@@ -1,7 +1,66 @@
-# Plp Academy Final Database Assignment
+# Student Record System
 
 ## Project Overview
-This project is part of the Plp Academy curriculum and focuses on designing, implementing, and managing a database system. The goal is to apply database concepts and best practices to solve real-world problems.
+# **Student Record System**
+
+This is a **Student Record System** designed to manage student data, course enrollment, and instructor assignments in a relational database. The system allows for easy tracking of students, courses, and enrollments using SQL, with proper database normalization and relationships.
+
+## **Features**
+- **Student Management**: Store and manage student details (name, email, phone, etc.).
+- **Course Management**: Store and manage courses offered by the institution.
+- **Enrollment Management**: Track student enrollments in various courses.
+- **Instructor Assignments**: Assign instructors to specific courses.
+- **Relational Database**: A well-structured relational database with relationships between tables (1:M, M:M).
+
+## **Table Structure**
+
+### **1. Students Table**
+Stores information about students, such as name, date of birth, contact details, and student ID.
+
+- **Columns**:
+  - `StudentID` (Primary Key)
+  - `FirstName`
+  - `LastName`
+  - `DateOfBirth`
+  - `Email` (Unique)
+  - `PhoneNumber`
+
+### **2. Courses Table**
+Stores information about the courses offered by the institution.
+
+- **Columns**:
+  - `CourseID` (Primary Key)
+  - `CourseName`
+  - `CourseDescription`
+  - `Credits`
+
+### **3. Enrollments Table**
+Stores the enrollments of students in specific courses, with a many-to-many relationship between students and courses.
+
+- **Columns**:
+  - `EnrollmentID` (Primary Key)
+  - `StudentID` (Foreign Key)
+  - `CourseID` (Foreign Key)
+  - `EnrollmentDate`
+  - `Grade`
+
+### **4. Instructors Table**
+Stores information about the instructors who teach the courses.
+
+- **Columns**:
+  - `InstructorID` (Primary Key)
+  - `FirstName`
+  - `LastName`
+  - `Email`
+  - `PhoneNumber`
+
+### **5. CourseInstructors Table**
+Stores the relationship between instructors and the courses they teach.
+
+- **Columns**:
+  - `InstructorID` (Foreign Key)
+  - `CourseID` (Foreign Key)
+
 
 ## Features
 - Database schema design
@@ -22,6 +81,31 @@ This project is part of the Plp Academy curriculum and focuses on designing, imp
 2. Navigate to the project directory:
     ```bash
     cd Plp_Academy_Final_Database_Assignment
+    ```
+
+3. Install MariaDB (You can use any DB)
+    On Fedora
+    ```sql
+    sudo dnf install mariadb-server
+    sudo systemctl start mariadb
+    sudo systemctl enable mariadb
+    ```
+    On Ubuntu
+    ```sql
+    sudo apt update
+    sudo apt install mariadb-server
+    sudo systemctl start mariadb
+    sudo systemctl enable mariadb
+    ```
+4. Set Up the Database
+    ```sql
+    mysql -u root -p
+    CREATE DATABASE StudentRecordSystem;
+    USE StudentRecordSystem;
+    ```
+5. Run SQL Script
+    ```sql
+    source create_tables.sql;
     ```
 
 ## Usage
@@ -87,5 +171,23 @@ These tests ensure the database is functioning as expected and adheres to the de
 
 
 ## Contributing
-Contributions are welcome! Please fork the repository and submit a pull request.
+We welcome contributions to improve the project. To contribute:
+
+Fork the repository.
+
+Create a new branch 
+  ```bash
+git checkout -b feature-branch
+```
+Make changes and commit
+ ```bash 
+ git commit -m "Add feature"
+```
+Push to your fork 
+```bash 
+ git push origin feature-branch
+```
+Open a pull request with your changes.
+
+
 
